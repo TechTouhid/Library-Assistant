@@ -3,4 +3,5 @@ module LIbrary.Assistant {
     requires javafx.controls;
     opens library.assistant.ui.addBook;
     requires com.jfoenix;
+    requires java.sql;
 }
