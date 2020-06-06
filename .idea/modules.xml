@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LIbrary Assistant.iml" filepath="$PROJECT_DIR$/LIbrary Assistant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Library Assistant.iml" filepath="$PROJECT_DIR$/Library Assistant.iml" />
     </modules>
   </component>
 </project>

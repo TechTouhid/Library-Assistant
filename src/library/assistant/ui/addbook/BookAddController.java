@@ -1,16 +1,19 @@
-package library.assistant.ui.addBook;
+package library.assistant.ui.addbook;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import library.assistant.database.DatabaseHandler;
+import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller {
+public class BookAddController implements Initializable {
 
     @FXML
     private JFXTextField title;
@@ -30,12 +33,15 @@ public class Controller {
     @FXML
     private JFXButton cancelButton;
 
-    DatabaseHandler databaseHandler = new DatabaseHandler();
+    @FXML
+    private AnchorPane rootPane;
+
+    DatabaseHandler databaseHandler;
 
 
-    //    @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-//            databaseHandler = new DatabaseHandler();
+        databaseHandler = new DatabaseHandler();
     }
 
 
@@ -53,12 +59,13 @@ public class Controller {
             alert.showAndWait();
             return;
         }
-        String qu = "INSERT INTO Book (id, title, author, publisher, isval) VALUE (" +
+        String qu = "INSERT INTO Book (id, title, author, publisher, isAvail) VALUE (" +
                 "'" + bookID + "'," +
                 "'" + bookName + "'," +
                 "'" + bookAuthor + "'," +
                 "'" + bookPublisher + "'," +
                 "" + true + "" + ")";
+
         if (databaseHandler.execAction(qu)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
@@ -74,6 +81,8 @@ public class Controller {
 
     @FXML
     void cancel(ActionEvent event) {
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+        stage.close();
 
     }
 

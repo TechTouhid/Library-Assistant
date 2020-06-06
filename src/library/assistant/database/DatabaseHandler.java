@@ -4,6 +4,7 @@ import javafx.scene.layout.Pane;
 
 import java.lang.invoke.SwitchPoint;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class DatabaseHandler {
 
@@ -35,7 +36,7 @@ public class DatabaseHandler {
             stmt.execute("CREATE TABLE IF NOT EXISTS book" +
                     "(id varchar(255) PRIMARY key, title varchar (255), " +
                     " author varchar (255), publisher varchar (255), " +
-                    "isval boolean default true )");
+                    "isAvail boolean default true )");
 
             stmt.execute("SET GLOBAL time_zone = '+6:00'");
         } catch (SQLException e) {
@@ -63,6 +64,7 @@ public class DatabaseHandler {
             stmt.execute(qu);
             return true;
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error:" + e.getMessage(), "Error Occurred", JOptionPane.ERROR_MESSAGE);
             System.out.println("Exception at execQuery:dataHandler" + e.getLocalizedMessage());
             return false;
         }
