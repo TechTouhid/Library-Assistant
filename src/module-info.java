@@ -11,4 +11,7 @@ module Library.Assistant {
 
     exports library.assistant.ui.addmember to javafx.graphics, javafx.fxml;
     opens library.assistant.ui.addmember to javafx.fxml, javafx.base;
+
+    exports library.assistant.ui.listmember to javafx.graphics, javafx.fxml;
+    opens library.assistant.ui.listmember to javafx.fxml, javafx.base;
 }
