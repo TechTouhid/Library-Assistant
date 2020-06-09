@@ -18,6 +18,7 @@ public class DatabaseHandler {
     public DatabaseHandler() {
         createConnection();
         setupBookTable();
+        setupMemberTable();
     }
 
     // created the database connection
@@ -39,6 +40,21 @@ public class DatabaseHandler {
                     "isAvail boolean default true )");
 
             stmt.execute("SET GLOBAL time_zone = '+6:00'");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    // created the Member Table
+    public void setupMemberTable() {
+        try {
+            stmt = conn.createStatement();
+            stmt.execute(" CREATE TABLE IF NOT EXISTS member ("
+                    +" id varchar(255) PRIMARY key, \n"
+                    +" name varchar (255), \n"
+                    +" mobile varchar (20), \n"
+                    +" email varchar (100) \n"
+                    +  ")"
+                    );
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

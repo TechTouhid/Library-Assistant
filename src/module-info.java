@@ -8,4 +8,7 @@ module Library.Assistant {
 //    to solve the problem: Caused by: java.lang.IllegalAccessException
     exports library.assistant.ui.listbook to javafx.graphics, javafx.fxml;
     opens library.assistant.ui.listbook to javafx.fxml, javafx.base;
+
+    exports library.assistant.ui.addmember to javafx.graphics, javafx.fxml;
+    opens library.assistant.ui.addmember to javafx.fxml, javafx.base;
 }
